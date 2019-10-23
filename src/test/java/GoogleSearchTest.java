@@ -4,6 +4,7 @@ import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -13,7 +14,9 @@ public class GoogleSearchTest<WebDriver> {
     public void setUp() {
 // Launch a new Firefox instance
         System.getProperty("webdriver.gecko.driver","C:\\Windows\\geckodriver.exe");
-        driver = new ChromeDriver();
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("headless");
+        driver = new ChromeDriver(options);
 // Maximize the browser window
         driver.manage().window().maximize();
 // Navigate to Google
@@ -32,8 +35,8 @@ public class GoogleSearchTest<WebDriver> {
         System.out.println("Page title is: " + driver.getTitle());
         // Google's search is rendered dynamically with JavaScript.
         // wait for the page to load, timeout after 10 seconds
-        (new WebDriverWait(driver, 10)).until(new ExpectedCondition<Boolean>() {
-            public Boolean apply(org.openqa.selenium.WebDriver d) {
+       (new WebDriverWait(driver, 10)).until(new ExpectedCondition<Boolean>() {
+           public Boolean apply(org.openqa.selenium.WebDriver d) {
                 return d.getTitle().toLowerCase().startsWith("cheese!");
             }
         });
