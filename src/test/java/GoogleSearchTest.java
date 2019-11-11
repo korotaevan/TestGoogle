@@ -14,9 +14,10 @@ public class GoogleSearchTest<WebDriver> {
     public void setUp() {
 // Launch a new Firefox instance
         System.getProperty("webdriver.gecko.driver","C:\\Windows\\geckodriver.exe");
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("headless");
-        driver = new ChromeDriver(options);
+        //ChromeOptions options = new ChromeOptions();
+        //options.addArguments("headless");
+        //driver = new ChromeDriver(options);
+        driver = new ChromeDriver();
 // Maximize the browser window
         driver.manage().window().maximize();
 // Navigate to Google
