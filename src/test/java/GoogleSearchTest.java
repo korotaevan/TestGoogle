@@ -13,7 +13,7 @@ public class GoogleSearchTest<WebDriver> {
     @Before
     public void setUp() {
 // Launch a new Firefox instance
-        System.getProperty("webdriver.gecko.driver","C:\\Windows\\geckodriver.exe");
+        System.getProperty("webdriver.chrome.driver","C:\\Windows\\chromedriver.exe");
         //ChromeOptions options = new ChromeOptions();
         //options.addArguments("headless");
         //driver = new ChromeDriver(options);
